@@ -1,0 +1,515 @@
+/* =====================================================
+   CONFERE AÍ — identidade visual e layout responsivo
+   Projeto autoral: paleta terrosa, cartões interativos
+   e organização de página com Flexbox.
+   ===================================================== */
+
+:root {
+  --marrom: #7e3e1c;
+  --marrom-escuro: #512713;
+  --terracota: #b9683f;
+  --creme: #f5f2f2;
+  --papel: #fffdfb;
+  --texto: #2e2926;
+  --texto-suave: #71645d;
+  --destaque: #e7b36b;
+  --borda: #e7dcd5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--creme);
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+/* CABEÇALHO: marca à esquerda e links à direita */
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 15px 25px;
+  background-color: var(--marrom);
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.marca strong {
+  color: var(--destaque);
+}
+
+.marca-simbolo {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 2px solid var(--destaque);
+  border-radius: 50%;
+  color: var(--destaque);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.cabecalho-link {
+  color: #fff;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cabecalho-link:hover,
+.cabecalho-link:focus-visible {
+  color: var(--destaque);
+}
+
+/* MAIN cresce para manter o rodapé após o conteúdo */
+main {
+  flex: 1;
+}
+
+/* ABERTURA */
+.apresentacao {
+  position: relative;
+  overflow: hidden;
+  padding: 82px 24px 68px;
+  background-color: var(--marrom-escuro);
+  color: #fff;
+  text-align: center;
+}
+
+.apresentacao::before,
+.apresentacao::after {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border: 1px solid rgba(231, 179, 107, 0.24);
+  border-radius: 50%;
+  content: "";
+}
+
+.apresentacao::before {
+  top: -135px;
+  left: -70px;
+}
+
+.apresentacao::after {
+  right: -90px;
+  bottom: -155px;
+  width: 300px;
+  height: 300px;
+}
+
+.sobretitulo,
+.numero-secao {
+  color: var(--terracota);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.apresentacao .sobretitulo {
+  color: var(--destaque);
+}
+
+.apresentacao h1 {
+  margin: 16px 0;
+  color: #fff;
+  font-size: clamp(2.5rem, 7vw, 4.8rem);
+  line-height: 1.03;
+  letter-spacing: -2px;
+}
+
+.apresentacao h1 span {
+  color: var(--destaque);
+}
+
+.texto-abertura {
+  max-width: 610px;
+  margin: 0 auto 27px;
+  color: #f0e5de;
+  font-size: 1.05rem;
+}
+
+.botao-principal {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  background-color: var(--destaque);
+  color: var(--marrom-escuro);
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.botao-principal:hover {
+  transform: translateY(-2px);
+  background-color: #f2c887;
+}
+
+.selo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 48px;
+  color: #e8d4c6;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.selo-ponto {
+  color: var(--destaque);
+}
+
+/* INTRODUÇÃO */
+.introducao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 68px 25px;
+}
+
+.introducao-titulo {
+  flex: 1;
+}
+
+.introducao h2,
+.cabecalho-secao h2 {
+  margin-top: 10px;
+  color: var(--marrom-escuro);
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  line-height: 1.2;
+}
+
+.introducao > p {
+  flex: 1;
+  max-width: 490px;
+  color: var(--texto-suave);
+}
+
+/* SEÇÃO DOS CARDS */
+.passos {
+  padding: 65px 25px 80px;
+  background-color: #eee6e0;
+}
+
+.cabecalho-secao {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto 30px;
+}
+
+.cabecalho-secao h2 {
+  max-width: 590px;
+}
+
+.instrucao {
+  max-width: 300px;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+/* Flexbox distribui os cartões lado a lado */
+.cartoes {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* O cartão define a perspectiva e o espaço das faces */
+.cartao {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 300px;
+  perspective: 1000px;
+  cursor: pointer;
+  outline: none;
+}
+
+.cartao-interno {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.cartao:hover .cartao-interno,
+.cartao:focus .cartao-interno {
+  transform: rotateY(180deg);
+}
+
+.cartao-frente,
+.cartao-verso {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 25px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(46, 41, 38, 0.15);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.cartao-frente {
+  background-color: var(--papel);
+}
+
+.cartao-verso {
+  transform: rotateY(180deg);
+  background-color: var(--marrom);
+  color: #fff;
+}
+
+.cartao-numero {
+  color: var(--terracota);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.cartao-verso .cartao-numero {
+  color: var(--destaque);
+}
+
+.icone-cartao {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  margin: 15px 0 12px;
+  place-items: center;
+  border-radius: 50%;
+  background-color: #f3e6dc;
+  color: var(--marrom);
+  font-size: 1.6rem;
+}
+
+.cartao h3 {
+  margin-bottom: 9px;
+  color: var(--marrom-escuro);
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.cartao-verso h3 {
+  margin-top: 22px;
+  color: #fff;
+}
+
+.cartao p {
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+}
+
+.cartao-verso p {
+  color: #f5e9e2;
+}
+
+.virar {
+  margin-top: auto;
+  padding-top: 16px;
+  color: var(--terracota);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.cartao-verso .virar {
+  color: var(--destaque);
+}
+
+.cartao:focus-visible {
+  outline: 3px solid var(--terracota);
+  outline-offset: 5px;
+}
+
+/* LEMBRETE FINAL */
+.lembrete {
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.lembrete-aspas {
+  display: block;
+  height: 45px;
+  color: var(--terracota);
+  font-family: Georgia, serif;
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.lembrete p {
+  margin-bottom: 8px;
+  color: var(--marrom-escuro);
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 800;
+}
+
+.lembrete > span:last-child {
+  color: var(--texto-suave);
+}
+
+/* RODAPÉ usa a mesma cor do cabeçalho */
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 25px;
+  background-color: var(--marrom);
+  color: #fff;
+}
+
+.marca-rodape {
+  font-size: 1rem;
+}
+
+.marca-rodape .marca-simbolo {
+  width: 27px;
+  height: 27px;
+}
+
+.rodape p {
+  color: #f0e5de;
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.voltar-topo {
+  color: var(--destaque);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+/* TABLETS E CELULARES */
+@media (max-width: 760px) {
+  .introducao,
+  .cabecalho-secao {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .introducao > p {
+    max-width: none;
+  }
+
+  .cartoes {
+    flex-wrap: wrap;
+  }
+
+  .cartao {
+    flex: 1 1 280px;
+  }
+
+  .rodape {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .cabecalho {
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .menu {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+
+  .cabecalho-link {
+    font-size: 0.85rem;
+  }
+
+  .apresentacao {
+    padding: 65px 20px 50px;
+  }
+
+  .apresentacao h1 {
+    letter-spacing: -1px;
+  }
+
+  .selo {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.6rem;
+  }
+
+  .introducao,
+  .passos {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .cartao {
+    flex-basis: 100%;
+  }
+
+  .rodape {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Respeita usuários que preferem menos animações */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,25 @@
+CONFERE AÍ — PROJETO AUTORAL
+
+Arquivos:
+- index.html: estrutura e conteúdo da página.
+- style.css: identidade visual, Flexbox, cartões 3D e responsividade.
+
+COMO ABRIR
+1. Baixe e extraia o arquivo ZIP.
+2. Abra a pasta no Visual Studio Code.
+3. Abra o arquivo index.html no navegador.
+
+O QUE FOI IMPLEMENTADO
+- Cabeçalho em Flexbox: display:flex, justify-content:space-between e align-items:center.
+- Body em coluna: display:flex, flex-direction:column e min-height:100vh.
+- Main com flex:1 para ocupar o espaço disponível.
+- Paleta autoral em tons terrosos, com cabeçalho e rodapé #7e3e1c.
+- Links claros no cabeçalho e título principal branco.
+- Cartões com .cartao-interno em position:relative.
+- Faces .cartao-frente e .cartao-verso em position:absolute, com cantos arredondados e sombra.
+- Efeito 3D com transition, transform-style:preserve-3d, backface-visibility e rotateY(180deg).
+- Cartões lado a lado usando Flexbox e gap.
+- Adaptação para telas menores e navegação por teclado.
+
+INTERAÇÃO
+Passe o mouse sobre um cartão ou use a tecla Tab para focalizá-lo e revelar o verso.
